@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
         "state": {
           "branch": null,
-          "revision": "6dcc7c034d28fe7ac652453faeae07656f723909",
-          "version": "0.5.1"
+          "revision": "4cf088c29a20f52be0f2ca54992b492c54e0076b",
+          "version": "0.5.3"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/CombineCommunity/CombineExt.git",
         "state": {
           "branch": null,
-          "revision": "5b8a0c0f178527f9204200505c5fefa6847e528f",
-          "version": "1.3.0"
+          "revision": "fc3e405ea46ee748649bd8b71587b2a9c37e1422",
+          "version": "1.5.0"
         }
       },
       {
@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/Qase/swift-core.git",
         "state": {
           "branch": "master",
-          "revision": "c677f1618b058966094af6d31fd928a3e5b70d81",
+          "revision": "9496f8c2783e34c7eb92d03a7146a616c412cb70",
           "version": null
         }
       },
@@ -51,7 +51,7 @@
         "repositoryURL": "https://github.com/Qase/swift-overture-operators.git",
         "state": {
           "branch": "master",
-          "revision": "33cab87d56c14fcd0f9876f1e0936a8263431733",
+          "revision": "e859d04918bbbdae5032c1ee08682b304b4d8e9e",
           "version": null
         }
       },
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/pointfreeco/xctest-dynamic-overlay",
         "state": {
           "branch": null,
-          "revision": "b9eeb1a7ea3fd6fea54ce57dee2f5794b667c8df",
-          "version": "0.2.0"
+          "revision": "50a70a9d3583fe228ce672e8923010c8df2deddd",
+          "version": "0.2.1"
         }
       }
     ]
