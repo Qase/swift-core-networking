@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/Qase/swift-core.git",
         "state": {
           "branch": "master",
-          "revision": "c677f1618b058966094af6d31fd928a3e5b70d81",
+          "revision": "9496f8c2783e34c7eb92d03a7146a616c412cb70",
           "version": null
         }
       },
@@ -51,7 +51,7 @@
         "repositoryURL": "https://github.com/Qase/swift-overture-operators.git",
         "state": {
           "branch": "master",
-          "revision": "33cab87d56c14fcd0f9876f1e0936a8263431733",
+          "revision": "e859d04918bbbdae5032c1ee08682b304b4d8e9e",
           "version": null
         }
       },
