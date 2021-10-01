@@ -48,9 +48,9 @@ class URLRequest_Tests: XCTestCase {
 
     func test_urlRequest_compose_endpoint_with_argument_parameters() {
         let sut = Request(endpoint: "https://www.google.com") {
-            URLRequestComponent.array(
-                .queryParameter(name: "param1", value: "value1"),
-                .queryParameter(name: "param2", value: "value2")
+            ComponentArray(
+                QueryParameter("param1", parameterValue: "value1"),
+                QueryParameter("param2", parameterValue: "value2")
             )
         }
 
@@ -70,7 +70,7 @@ class URLRequest_Tests: XCTestCase {
 
     func test_urlRequest_compose_endpoint_with_parameters_and_argument_parameters() {
         let sut = Request(endpoint: "https://www.google.com?param1=value1") {
-            URLRequestComponent.queryParameter(name: "param2", value: "value2")
+            QueryParameter("param2", parameterValue: "value2")
         }
 
         switch sut.urlRequest {
@@ -111,9 +111,9 @@ class URLRequest_Tests: XCTestCase {
 
     func test_setting_headers_to_empty_allHTTPHeaderFields() {
         let sut = Request(endpoint: "https://www.google.com") {
-            URLRequestComponent.array(
-                .header(.accept(.json)),
-                .header(.contentType(.json))
+            ComponentArray(
+                Header(.accept(.json)),
+                Header(.contentType(.json))
             )
         }
 
@@ -144,7 +144,7 @@ class URLRequest_Tests: XCTestCase {
         let user = User(name: "John", surname: "Doe")
 
         let sut = Request(endpoint: "https://www.google.com") {
-            URLRequestComponent.body(user)
+            Body(user)
         }
 
         switch sut.urlRequest {
@@ -173,7 +173,7 @@ class URLRequest_Tests: XCTestCase {
         let user = User(name: "John", surname: "Doe")
 
         let sut = Request(endpoint: "https://www.google.com") {
-            URLRequestComponent.body(user)
+            Body(user)
         }
 
         switch sut.urlRequest {

@@ -20,12 +20,12 @@ class URL_logDescriptionTests: XCTestCase {
         let user = User(name: "John", surname: "Doe")
 
         let sut = Request(endpoint: "https://www.google.com") {
-            URLRequestComponent.method(.get)
-            URLRequestComponent.array(
-                .header(.init(name: .acceptType, value: "accept-type")),
-                .header(.init(name: .authorization, value: "authorization"))
+            Method(.get)
+            ComponentArray(
+                Header(.acceptType, headerValue: "accept-type"),
+                Header(.authorization, headerValue: "authorization")
             )
-            URLRequestComponent.body(user)
+            Body(user)
         }
 
         func logDescriptionFromTemplate(header1: String, header2: String) -> String {

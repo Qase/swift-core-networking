@@ -9,8 +9,8 @@ import Foundation
 import Overture
 import OvertureOperators
 
-extension URLRequestComponent {
-    public static func header(_ header: HTTPHeader) -> Self {
+private extension URLRequestComponent {
+    static func header(_ header: HTTPHeader) -> Self {
         .init { urlRequest in
             let headerFields = [(header.name, header.value)] |> Dictionary.init(uniqueKeysWithValues:)
 
@@ -20,5 +20,23 @@ extension URLRequestComponent {
                 }
                 >>> Result.success
         }
+    }
+}
+
+// MARK: - Syntax sugar
+
+public typealias Header = URLRequestComponent
+
+public extension Header {
+    init(_ header: HTTPHeader) {
+        self = URLRequestComponent.header(header)
+    }
+
+    init(_ name: String, headerValue: String) {
+        self = URLRequestComponent.header(.init(name: name, value: headerValue))
+    }
+
+    init(_ name: HTTPHeaderName, headerValue: String) {
+        self = URLRequestComponent.header(.init(name: name, value: headerValue))
     }
 }

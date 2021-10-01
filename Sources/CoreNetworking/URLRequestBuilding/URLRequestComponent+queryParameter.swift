@@ -9,24 +9,8 @@ import Foundation
 import Overture
 import OvertureOperators
 
-public struct QueryParameter {
-    public let name: String
-    public let value: LosslessStringConvertible
-
-    public init(name: String, value: LosslessStringConvertible) {
-        self.name = name
-        self.value = value
-    }
-}
-
-public extension QueryParameter {
-    var urlQueryItem: URLQueryItem {
-        .init(name: name, value: String(describing: value))
-    }
-}
-
-extension URLRequestComponent {
-    public static func queryParameter(name: String, value: LosslessStringConvertible) -> Self {
+private extension URLRequestComponent {
+    static func queryParameter(name: String, value: LosslessStringConvertible) -> Self {
         .init { urlRequest in
             Result<String, URLRequestError>.from(optional: urlRequest.url?.absoluteString, onNil: URLRequestError.endpointParsingError)
                 .map(URLComponents.init(string:))
@@ -35,6 +19,16 @@ extension URLRequestComponent {
                 .map(\.url)
                 .map { urlRequest |> set(\URLRequest.url, $0) }
         }
+    }
+}
+
+// MARK: - Syntax sugar
+
+public typealias QueryParameter = URLRequestComponent
+
+public extension QueryParameter {
+    init(_ name: String, parameterValue: LosslessStringConvertible) {
+        self = URLRequestComponent.queryParameter(name: name, value: parameterValue)
     }
 }
 

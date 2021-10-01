@@ -10,12 +10,22 @@ import Overture
 import OvertureOperators
 
 
-extension URLRequestComponent {
-    public static func method(_ method: HTTPMethod) -> Self {
+private extension URLRequestComponent {
+    static func method(_ method: HTTPMethod) -> Self {
         .init { urlRequest in
             urlRequest
                 |> set(\URLRequest.httpMethod, method.rawValue)
                 >>> Result.success
         }
+    }
+}
+
+// MARK: - Syntax sugar
+
+public typealias Method = URLRequestComponent
+
+public extension Method {
+    init(_ method: HTTPMethod) {
+        self = URLRequestComponent.method(method)
     }
 }

@@ -26,11 +26,11 @@ extension URLRequestComponent {
 // MARK: - URLRequestComponent + array
 
 extension URLRequestComponent {
-    public static func array(_ components: URLRequestComponent...) -> Self {
+    static func array(_ components: URLRequestComponent...) -> Self {
         array(components)
     }
 
-    public static func array(_ components: [URLRequestComponent]) -> Self {
+    static func array(_ components: [URLRequestComponent]) -> Self {
         let combine: (URLRequestComponent, URLRequestComponent) -> URLRequestComponent = { component1, component2 in
             URLRequestComponent { component1.build($0).flatMap(component2.build) }
         }
@@ -40,5 +40,19 @@ extension URLRequestComponent {
 
             return combined.build(urlRequest)
         }
+    }
+}
+
+// MARK: - Syntax sugar
+
+public typealias ComponentArray = URLRequestComponent
+
+extension ComponentArray {
+    public init(_ components: [URLRequestComponent]) {
+        self = URLRequestComponent.array(components)
+    }
+
+    public init(_ components: URLRequestComponent...) {
+        self = URLRequestComponent.array(components)
     }
 }
